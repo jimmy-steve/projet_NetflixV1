@@ -89,8 +89,8 @@
                 <li class="nav-item">
 
                     <div class="text-center">
-                        <a href="formulaireLogin.jsp" class=" btn btn-danger ml-2 mr-2" style="margin-right: 10px">
-                            Login
+                        <a href="Acceuil.jsp" class=" btn btn-outline-danger ml-2 mr-2" style="margin-right: 10px">
+                            LogOut
                         </a>
                     </div>
                 </li>

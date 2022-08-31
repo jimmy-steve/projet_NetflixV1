@@ -35,7 +35,6 @@ public class GestionAdmin extends HttpServlet {
             List<User> listUsers = userDao.getAllUsers();
 
 
-
             session.setAttribute("listUsers", listUsers);
             session.setAttribute("listClients",listClients);
 //

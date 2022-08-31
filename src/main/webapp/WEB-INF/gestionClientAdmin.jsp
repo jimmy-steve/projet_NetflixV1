@@ -22,13 +22,13 @@
 <body style="background-color: black">
 <%@include file="/includes/navbarAdmin.jsp" %>
 <br>
-<div class="alert alert-secondary alert-dismissible fade show container"
-     style="margin-top: 150px" role="alert">
-    <strong> Bonjour ${user.username} </strong>, vous êtes maintenant connecter
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
+<%--<div class="alert alert-secondary alert-dismissible fade show container"--%>
+<%--     style="margin-top: 150px" role="alert">--%>
+<%--    <strong> Bonjour ${user.username} </strong>, vous êtes maintenant connecter--%>
+<%--    <button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
+<%--        <span aria-hidden="true">&times;</span>--%>
+<%--    </button>--%>
+<%--</div>--%>
 
 <h1 class="text-center text-light" style="margin:auto;margin-top:100px">Liste de shows netflix Administration</h1>
 

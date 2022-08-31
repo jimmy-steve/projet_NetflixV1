@@ -1,7 +1,14 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: lafon
+  Date: 2022-08-31
+  Time: 10:44
+  To change this template use File | Settings | File Templates.
+--%>
 <!-- La barre de navigation en haut -->
 <nav class="cc-navbar navbar navbar-expand-lg position-fixed navbar-dark w-100" style="background-color: black">
     <div class="container-fluid">
-        <a class="navbar-brand text-uppercase fw-bolder mx-4 py-3 ml-5" href="index.jsp" style="color: red">Netflix </a>
+        <a class="navbar-brand text-uppercase fw-bolder mx-4 py-3 ml-5" href="Acceuil.jsp" style="color: red">Netflix </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -12,10 +19,10 @@
 
 
                 <li class="nav-item pe-4">
-                    <a class="nav-link active" aria-current="page" href="index.jsp">Accueil</a>
+                    <a class="nav-link active mr-4" aria-current="page" href="Acceuil.jsp">Accueil</a>
                 </li>
                 <li class="nav-item dropdown pe-4">
-                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                    <a class="nav-link dropdown-toggle mr-4" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         TOP 10
                     </a>
@@ -31,7 +38,7 @@
 
 
                 <li class="nav-item dropdown pe-4">
-                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                    <a class="nav-link dropdown-toggle mr-4" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Abonnement
                     </a>
@@ -45,44 +52,17 @@
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <form action="ShowCardSpecial" name="forms1" method="post">
-                        <div class="text-center">
-                            <input type="hidden" name="type" value="all">
-                            <input type="hidden" name="action" value="PasAdmin">
-                            <input type="hidden" name="pays" value="all">
-                            <input class=" btn btn-danger " style="margin-right: 10px" type="submit"
-                                   value="Special Edition "/>
-                        </div>
-                    </form>
-                </li>
-
-                <li class="nav-item">
-                    <form action="ShowCtr" name="forms1" method="post">
-                        <div class="text-center">
-                            <input type="hidden" name="type" value="all">
-                            <input type="hidden" id="action" name="action" value="PasAdmin">
-                            <input type="hidden" name="pays" value="all">
-                            <input class=" btn btn-danger " style="margin-right: 10px" type="submit"
-                                   value="Liste "/>
-
-                        </div>
-                    </form>
-                </li>
-
-
-
                 <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input class="form-control mr-sm-2 mr-4" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0 mr-4 ml-4" type="submit">Search</button>
                 </form>
 
 
                 <li class="nav-item">
 
                     <div class="text-center">
-                        <a href="Acceuil.jsp" class=" btn btn-outline-danger ml-2 mr-2" style="margin-right: 10px">
-                            LogOut
+                        <a href="formulaireLogin.jsp" class=" btn btn-danger ml-2 mr-2" style="margin-right: 10px">
+                            Login
                         </a>
                     </div>
                 </li>
@@ -92,6 +72,3 @@
         </div>
     </div>
 </nav>
-
-
-

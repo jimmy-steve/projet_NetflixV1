@@ -27,12 +27,15 @@ public class Login extends HttpServlet {
         List<Show> listeShows = null;
         User user = new User("frank", "1234", true);
 
+        User userRegulier = new User("alex", "1234", false);
+
         try {
             String userName = request.getParameter("username");
             String passWord = request.getParameter("password");
             User userAdmin = new User(userName, passWord, true);
 
-            if (user.getUsername().equals(userAdmin.getUsername()) && user.getHashPassword().equals(userAdmin.getHashPassword())) {
+            if (user.getUsername().equals(userAdmin.getUsername()) && user.getHashPassword()
+                    .equals(userAdmin.getHashPassword()) && userAdmin.isAdmin()) {
 
                 IShow showDao = new ShowDao();
                 listeShows = ((ShowDao) showDao).GetAllCanadianShowsRecent();
@@ -40,6 +43,13 @@ public class Login extends HttpServlet {
 
                 dest = "WEB-INF/Connecter.jsp";
 
+            } else if (userRegulier.getUsername().equals(userAdmin.getUsername()) && userRegulier.getHashPassword()
+                    .equals(userAdmin.getHashPassword()) && !userRegulier.isAdmin()) {
+                IShow showDao = new ShowDao();
+                listeShows = ((ShowDao) showDao).GetAllCanadianShowsRecent();
+                session.setAttribute("listeshows", listeShows);
+
+                dest = "index.jsp";
             } else {
                 dest = "WEB-INF/erreurConnection.jsp";
             }

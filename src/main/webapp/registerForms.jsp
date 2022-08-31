@@ -13,7 +13,7 @@
     <link type="text/css" rel="stylesheet" href="includes/style.css">
 </head>
 <body style="background-color: black">
-<%@include file="/includes/navbar.jsp" %>
+<%@include file="/includes/navbarAcceuil.jsp" %>
 <br><br><br><br><br>
 
 <!-- La banière d'acceuil -->
