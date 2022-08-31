@@ -1,5 +1,6 @@
 package dao;
 
+import modeles.Client;
 import modeles.Show;
 import modeles.User;
 
@@ -46,5 +47,22 @@ public class UserDao implements IShow{
             entityManager.close();
         }
         return listeUsers;
+    }
+
+    public User getUser(long idUser) {
+        User user = null;
+        EntityManager entityManager = null;
+        try {
+            entityManager = entityManagerFactory.createEntityManager();
+            entityManager.getTransaction().begin();
+            user = entityManager.find(User.class, idUser);
+            return user;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return user;
+        } finally {
+            entityManager.close();
+        }
     }
 }

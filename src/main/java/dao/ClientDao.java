@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ClientDao implements IShow{
+public class ClientDao implements IShow {
     static EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("hibernate");
 
@@ -29,6 +29,7 @@ public class ClientDao implements IShow{
             return false;
         }
     }
+
     /**
      * Permet d'aller cherche tout la liste des shows
      *
@@ -70,7 +71,7 @@ public class ClientDao implements IShow{
         return listeClients;
     }
 
-    public Object getClient(int numeroClient) {
+    public static Object getClient(long numeroClient) {
         Object client = null;
 
         EntityManager entityManager = null;
@@ -81,12 +82,6 @@ public class ClientDao implements IShow{
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
             client = entityManager.find(Client.class, numeroClient);
-            Query query = entityManager.createNativeQuery("select * from client where id = "+numeroClient+";", Show.class);
-            client = query.getResultStream().findFirst();
-
-
-
-
             return client;
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,4 +91,25 @@ public class ClientDao implements IShow{
             entityManager.close();
         }
     }
+
+    public static Client getUnClient(long id) {
+        Client client = null;
+        EntityManager entityManager = null;
+        try {
+
+            entityManager = entityManagerFactory.createEntityManager();
+            entityManager.getTransaction().begin();
+
+            Client response = (Client) entityManager.find(Client.class, id);
+            return response;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return client;
+        } finally {
+            entityManager.close();
+        }
+    }
+
+
 }

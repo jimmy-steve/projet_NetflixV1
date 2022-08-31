@@ -53,10 +53,8 @@ public class ShowRepositoryTests {
 
     @Test
     public void testGetShow() {
-
         ShowDao showDao = new ShowDao();
-        Show show = showDao.getShow(2);
-
+        Show show = showDao.getShow(5);
         System.out.println(show);
     }
 

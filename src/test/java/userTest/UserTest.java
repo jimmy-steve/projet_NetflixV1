@@ -26,4 +26,12 @@ public class UserTest {
             System.out.println(tmp);
         }
     }
+
+    @Test
+    public void testGetUser() {
+        UserDao userDao = new UserDao();
+        User user = userDao.getUser(2L);
+
+        System.out.println(user);
+    }
 }

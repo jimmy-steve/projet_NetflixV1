@@ -23,7 +23,7 @@
 <%--    </button>--%>
 <%--</div>--%>
 
-<h1 class="text-center text-light" style="margin:auto;margin-top:100px">Liste de shows netflix Administration</h1>
+<h1 class="text-center text-light mb-3" style="margin:auto;margin-top:100px; margin-left: 100px">Liste de shows netflix Administration</h1>
 
 
 <div class="container-fluid">

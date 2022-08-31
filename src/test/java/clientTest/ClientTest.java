@@ -10,6 +10,7 @@ import modeles.User;
 import org.junit.jupiter.api.Test;
 import utilitaire.GenerateurNombreSequentiel;
 
+import javax.persistence.EntityManager;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -97,6 +98,24 @@ public class ClientTest {
             System.out.println(tmp);
         }
     }
+
+    @Test
+    public void testGetUnClient() {
+        ClientDao clientDao = new ClientDao();
+
+        System.out.println(ClientDao.getUnClient(1L));
+
+    }
+
+    @Test
+    public void testGetClient() {
+        ClientDao clientDao = new ClientDao();
+
+        System.out.println(ClientDao.getClient(1L));
+
+    }
+
+
 
 
 }

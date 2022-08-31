@@ -1,5 +1,6 @@
 package dao;
 
+import modeles.Client;
 import modeles.Show;
 
 import javax.persistence.EntityManager;
@@ -55,19 +56,14 @@ public class ShowDao implements IShow {
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
-            //show = entityManager.find(Show.class, id);
-
-            Query query = entityManager.createNativeQuery("select * from netflix where id = "+id+";", Show.class);
-            show = (Show) query.getResultStream().findFirst().get();
-
-
+            show = entityManager.find(Show.class, id);
             return show;
         } catch (Exception e) {
             e.printStackTrace();
-            entityManager.getTransaction().rollback();//----------------reviens en arrière
+            entityManager.getTransaction().rollback();
             return show;
         } finally {
-            entityManager.close();//dans l'etat detached
+            entityManager.close();
         }
     }
 

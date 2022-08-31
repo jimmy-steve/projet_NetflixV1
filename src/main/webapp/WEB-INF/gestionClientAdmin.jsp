@@ -1,13 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
   User: lafon
-  Date: 2022-08-30
-  Time: 17:48
-  To change this template use File | Settings | File Templates.
---%>
-<%--
-  Created by IntelliJ IDEA.
-  User: lafon
   Date: 2022-08-29
   Time: 21:25
   To change this template use File | Settings | File Templates.
@@ -78,7 +71,8 @@
                             </tr>
                             <tr>
                                 <th scope="row"><label for="prenom">Prénom :</label></th>
-                                <td><input type="text" id="prenom" name="prenom" value="${requestScope.client.prenom}"/></td>
+                                <td><input type="text" id="prenom" name="prenom" value="${requestScope.client.prenom}"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="nom">Nom :</label></th>
@@ -86,15 +80,18 @@
                             </tr>
                             <tr>
                                 <th scope="row"><label for="email">Email :</label></th>
-                                <td><input type="email" id="email" name="email" value="${requestScope.client.email}"/></td>
+                                <td><input type="email" id="email" name="email" value="${requestScope.client.email}"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="adresse">Adresse :</label></th>
-                                <td><input type="text" id="adresse" name="adresse" value="${requestScope.client.adresse}"/></td>
+                                <td><input type="text" id="adresse" name="adresse"
+                                           value="${requestScope.client.adresse}"/></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="telephone">Téléphone :</label></th>
-                                <td><input type="text" id="telephone" name="telephone" value="${requestScope.client.telephone}"/>
+                                <td><input type="text" id="telephone" name="telephone"
+                                           value="${requestScope.client.telephone}"/>
                                 </td>
                             </tr>
 
@@ -105,11 +102,13 @@
                             </tr>
                             <tr class="bg-dark">
                                 <th scope="row" class="text-light"><label for="userName">Username:</label></th>
-                                <td><input type="text" id="userName" name="userName" value="${requestScope.user.username}"/></td>
+                                <td><input type="text" id="userName" name="userName"
+                                           value="${requestScope.user.username}"/></td>
                             </tr>
                             <tr class="bg-dark">
                                 <th scope="row" class="text-light"><label for="password">Password :</label></th>
-                                <td><input type="text" id="password" name="password" value="${requestScope.user.hashPassword}"/></td>
+                                <td><input type="text" id="password" name="password"
+                                           value="${requestScope.user.hashPassword}"/></td>
                             </tr>
 
 
@@ -156,7 +155,8 @@
                             <td>${client.prenom} ${client.nom}</td>
                             <td>${client.email}</td>
                             <td>${user.username}</td>
-                            <td><a class="btn btn-outline-danger" href="GetClient?id=${client.idClient}">Modifié</a></td>
+                            <td><a class="btn btn-outline-danger" href="GetClient?id=${client.idClient}">Modifié</a>
+                            </td>
                         </tr>
 
                     </c:forEach>
@@ -167,6 +167,7 @@
 
     </div>
 </div>
+<br><br>
 
 <%@include file="/includes/footer.jsp" %>
 </body>
