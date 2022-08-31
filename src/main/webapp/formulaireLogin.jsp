@@ -32,7 +32,7 @@
                                         <h3 class="text-center text-danger mt-5">Connexion</h3>
                                         <div class="form-group">
                                             <label for="username" class="text-light">Username:</label><br>
-                                            <input placeholder="frank" type="text" name="username" id="username" class="form-control">
+                                            <input value="${username}" placeholder="username" type="text" name="username" id="username" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label for="password" class="text-light">Password:</label><br>
