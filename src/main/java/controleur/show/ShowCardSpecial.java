@@ -1,7 +1,7 @@
 package controleur.show;
 
-import dao.ShowDao;
-import modeles.Show;
+import dao.NetflixDao;
+import modeles.Netflix;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,8 +20,8 @@ public class ShowCardSpecial extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String dest = "AffCardTourne.jsp";
 
-        ShowDao showDao = new ShowDao();
-        List<Show> listeShows = showDao.GetAllCanadianShowsRecent();
+        NetflixDao showDao = new NetflixDao();
+        List<Netflix> listeShows = showDao.GetAllCanadianShowsRecent();
         request.setAttribute("listeShows", listeShows);
         RequestDispatcher disp = request.getRequestDispatcher(dest);
         disp.forward(request, response);

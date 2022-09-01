@@ -22,10 +22,10 @@ public class GestionAdmin extends HttpServlet {
 
         if (source.equals("client")){
             HttpSession session = request.getSession();
-            Client clientTest = new Client(1,"Lafon", "frank", "87 rue de la montagne Québec",
-                    "email@gmail.com", "(514)582-2459", 1, 1);
-
-            User userTest = new User("frank", "1234", true);
+//            Client clientTest = new Client(1,"Lafon", "frank", "87 rue de la montagne Québec",
+//                    "email@gmail.com", "(514)582-2459", 1, 1);
+//
+//            User userTest = new User("frank", "1234", true);
 
 
             ClientDao clientDao = new ClientDao();
@@ -34,13 +34,8 @@ public class GestionAdmin extends HttpServlet {
             List<Client> listClients = clientDao.getAllClients();
             List<User> listUsers = userDao.getAllUsers();
 
-
             session.setAttribute("listUsers", listUsers);
             session.setAttribute("listClients",listClients);
-//
-//            request.setAttribute("client",clientTest);
-//            request.setAttribute("user",userTest);
-
 
 
             dest = "/WEB-INF/gestionClientAdmin.jsp";

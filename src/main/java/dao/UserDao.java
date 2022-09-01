@@ -1,21 +1,20 @@
 package dao;
 
-import modeles.Client;
-import modeles.Show;
+import modeles.Netflix;
 import modeles.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
-public class UserDao implements IShow{
+public class UserDao implements IItem {
     /**
      * Permet d'aller cherche tout la liste des shows
      *
      * @return une liste de show complête
      */
     @Override
-    public List<Show> getAllShows() {
+    public List<Netflix> getAllShows() {
         return null;
     }
 
@@ -26,7 +25,7 @@ public class UserDao implements IShow{
      * @return un show
      */
     @Override
-    public Show getShow(int id) {
+    public Netflix getShow(int id) {
         return null;
     }
 

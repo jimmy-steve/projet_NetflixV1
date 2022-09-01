@@ -1,7 +1,6 @@
 package dao;
 
-import modeles.Client;
-import modeles.Show;
+import modeles.Netflix;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,7 +9,7 @@ import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowDao implements IShow {
+public class NetflixDao implements IItem {
 
     static EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("hibernate");
@@ -21,14 +20,14 @@ public class ShowDao implements IShow {
      * @return une liste de show complête
      */
     @Override
-    public List<Show> getAllShows() {
+    public List<Netflix> getAllShows() {
         List listeShows = null;
 
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
-            Query query = entityManager.createNativeQuery("SELECT * FROM netflix;", Show.class);
+            Query query = entityManager.createNativeQuery("SELECT * FROM netflix;", Netflix.class);
             listeShows = query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -46,8 +45,8 @@ public class ShowDao implements IShow {
      * @return un show
      */
     @Override
-    public Show getShow(int id) {
-        Show show = null;
+    public Netflix getShow(int id) {
+        Netflix show = null;
 
         EntityManager entityManager = null;
         /**
@@ -56,7 +55,7 @@ public class ShowDao implements IShow {
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
-            show = entityManager.find(Show.class, id);
+            show = entityManager.find(Netflix.class, id);
             return show;
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,8 +66,8 @@ public class ShowDao implements IShow {
         }
     }
 
-    public List<Show> getAllAmericanMovies() {
-        List<Show> listAmericanShows = new ArrayList<>();
+    public List<Netflix> getAllAmericanMovies() {
+        List<Netflix> listAmericanShows = new ArrayList<>();
 
 
         EntityManager entityManager = null;
@@ -76,7 +75,7 @@ public class ShowDao implements IShow {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
             Query query = entityManager.createNativeQuery("select * from netflix \n" +
-                    "where country like 'United States' and type like 'Movie';", Show.class);
+                    "where country like 'United States' and type like 'Movie';", Netflix.class);
             listAmericanShows = query.getResultList();
             return listAmericanShows;
         } catch (Exception e) {
@@ -88,15 +87,15 @@ public class ShowDao implements IShow {
         }
     }
 
-    public List<Show> GetAllCanadianShowsRecent() {
-        List<Show> listCanadianShows = new ArrayList<>();
+    public List<Netflix> GetAllCanadianShowsRecent() {
+        List<Netflix> listCanadianShows = new ArrayList<>();
 
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
             Query query = entityManager.createNativeQuery("select * from netflix \n" +
-                    "where country like 'Canada' and type like 'TV Show' and release_year >= 2020;", Show.class);
+                    "where country like 'Canada' and type like 'TV Show' and release_year >= 2020;", Netflix.class);
             listCanadianShows = query.getResultList();
             return listCanadianShows;
         } catch (Exception e) {
@@ -108,15 +107,15 @@ public class ShowDao implements IShow {
         }
     }
 
-    public List<Show> GetAllCanadian() {
-        List<Show> listCanadianShows = new ArrayList<>();
+    public List<Netflix> GetAllCanadian() {
+        List<Netflix> listCanadianShows = new ArrayList<>();
 
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
             Query query = entityManager.createNativeQuery("select * from netflix \n" +
-                    "where country like 'Canada' ;", Show.class);
+                    "where country like 'Canada' ;", Netflix.class);
             listCanadianShows = query.getResultList();
             return listCanadianShows;
         } catch (Exception e) {
@@ -128,15 +127,15 @@ public class ShowDao implements IShow {
         }
     }
 
-    public List<Show> GetAllAmerican() {
-        List<Show> listAmerican = new ArrayList<>();
+    public List<Netflix> GetAllAmerican() {
+        List<Netflix> listAmerican = new ArrayList<>();
 
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
             Query query = entityManager.createNativeQuery("select * from netflix \n" +
-                    "where country like 'United States';", Show.class);
+                    "where country like 'United States';", Netflix.class);
             listAmerican = query.getResultList();
             return listAmerican;
         } catch (Exception e) {
@@ -148,15 +147,15 @@ public class ShowDao implements IShow {
         }
     }
 
-    public List<Show> GetAllkids() {
-        List<Show> listKids = new ArrayList<>();
+    public List<Netflix> GetAllkids() {
+        List<Netflix> listKids = new ArrayList<>();
 
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
             Query query = entityManager.createNativeQuery("select * from netflix where listed_in like '%Kids%';"
-                    , Show.class);
+                    , Netflix.class);
             listKids = query.getResultList();
             return listKids;
         } catch (Exception e) {

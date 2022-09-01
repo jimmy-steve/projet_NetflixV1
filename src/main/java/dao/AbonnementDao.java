@@ -1,17 +1,17 @@
 package dao;
 
-import modeles.Show;
+import modeles.Netflix;
 
 import java.util.List;
 
-public class AbonnementDao implements IShow{
+public class AbonnementDao implements IItem {
     /**
      * Permet d'aller cherche tout la liste des shows
      *
      * @return une liste de show complête
      */
     @Override
-    public List<Show> getAllShows() {
+    public List<Netflix> getAllShows() {
         return null;
     }
 
@@ -22,7 +22,7 @@ public class AbonnementDao implements IShow{
      * @return un show
      */
     @Override
-    public Show getShow(int id) {
+    public Netflix getShow(int id) {
         return null;
     }
 }

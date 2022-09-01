@@ -1,7 +1,7 @@
 package controleur.show;
 
-import dao.ShowDao;
-import modeles.Show;
+import dao.NetflixDao;
+import modeles.Netflix;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -19,13 +19,13 @@ public class ShowCtr extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String dest = "AffListeShow.jsp";
-        List<Show> listeShows = null;
+        List<Netflix> listeShows = null;
         String option1 = request.getParameter("pays");
         String action = request.getParameter("action");
         String type = request.getParameter("type");
 
         System.out.println(option1);
-        ShowDao showDao = new ShowDao();
+        NetflixDao showDao = new NetflixDao();
 
         if (action.equals("admin")){
             dest = "/WEB-INF/Connecter.jsp";

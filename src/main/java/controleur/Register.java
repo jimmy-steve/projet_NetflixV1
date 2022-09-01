@@ -3,14 +3,12 @@ package controleur;
 import dao.*;
 import modeles.Abonnement;
 import modeles.Client;
-import modeles.Show;
 import modeles.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.List;
 
 import static utilitaire.GenerateurNombreSequentiel.genererNombre;
 
@@ -49,13 +47,13 @@ public class Register extends HttpServlet {
             /**
              * j'enregistre le user dans la base de donnée
              */
-            IShow userDao = new UserDao();
+            IItem userDao = new UserDao();
             userDao.insert(user);
             /**
              * J'enregistre le client dans la base de donnée
              */
             client.setIdUser(user.getIdUser());
-            IShow clientDao = new ClientDao();
+            IItem clientDao = new ClientDao();
             clientDao.insert(client);
 
             /**

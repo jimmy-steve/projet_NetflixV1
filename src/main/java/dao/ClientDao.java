@@ -1,7 +1,7 @@
 package dao;
 
 import modeles.Client;
-import modeles.Show;
+import modeles.Netflix;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ClientDao implements IShow {
+public class ClientDao implements IItem {
     static EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("hibernate");
 
@@ -36,7 +36,7 @@ public class ClientDao implements IShow {
      * @return une liste de show complête
      */
     @Override
-    public List<Show> getAllShows() {
+    public List<Netflix> getAllShows() {
         return null;
     }
 
@@ -47,7 +47,7 @@ public class ClientDao implements IShow {
      * @return un show
      */
     @Override
-    public Show getShow(int id) {
+    public Netflix getShow(int id) {
         return null;
     }
 

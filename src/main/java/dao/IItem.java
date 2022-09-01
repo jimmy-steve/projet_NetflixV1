@@ -1,13 +1,13 @@
 package dao;
 
-import modeles.Show;
+import modeles.Netflix;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public interface IShow {
+public interface IItem {
     EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("hibernate");
     /**
@@ -35,11 +35,11 @@ public interface IShow {
      *
      * @return une liste de show complête
      */
-    List<Show> getAllShows();
+    List<Netflix> getAllShows();
 
     /**
      * Permet d'aller chercher un show
      * @return un show
      */
-    Show getShow(int id);
+    Netflix getShow(int id);
 }

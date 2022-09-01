@@ -3,11 +3,11 @@ package modeles;
 import javax.persistence.*;
 
 @Entity
-public class Show {
+public class Netflix {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(length = 5, name = "show_id")
+    @Column(name = "show_id")
     private String showId;
     private String type;
     private String title;
@@ -24,19 +24,35 @@ public class Show {
     private String listedIn;
     private String description;
 
-    public Show() {
+    public Netflix() {
     }
 
-    public Show(String showId, int releaseYear ) {
+    public Netflix(String showId, int releaseYear ) {
         this.showId = showId;
         this.releaseYear = releaseYear;
     }
 
-    public Show(int id, String showId, String type, String title,
-                String director, String cast, String country, String dateAdded,
-                int releaseYear, String rating, String duration, String listedIn,
-                String description) {
+    public Netflix(int id, String showId, String type, String title,
+                   String director, String cast, String country, String dateAdded,
+                   int releaseYear, String rating, String duration, String listedIn,
+                   String description) {
         this.id = id;
+        this.showId = showId;
+        this.type = type;
+        this.title = title;
+        this.director = director;
+        this.cast = cast;
+        this.country = country;
+        this.dateAdded = dateAdded;
+        this.releaseYear = releaseYear;
+        this.rating = rating;
+        this.duration = duration;
+        this.listedIn = listedIn;
+        this.description = description;
+    }
+
+    public Netflix(String showId, String type, String title, String director, String cast, String country,
+                   String dateAdded, int releaseYear, String rating, String duration, String listedIn, String description) {
         this.showId = showId;
         this.type = type;
         this.title = title;

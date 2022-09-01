@@ -1,4 +1,4 @@
-<%--@elvariable id="show" type="modeles.Show"--%>
+<%--@elvariable id="show" type="modeles.Netflix"--%>
 <%--
   Created by IntelliJ IDEA.
   User: lafon
@@ -96,7 +96,7 @@
                         <tr class="text-center">
 
                             <td colspan="2" class="text-center">
-                                <button type="submit" class="btn btn-danger">Retour</button>
+                                <a  class="btn btn-danger" href="GestionAdmin?src=show">Retour</a>
 
                             </td>
                         </tr>

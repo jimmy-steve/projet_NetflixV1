@@ -1,6 +1,6 @@
 package userTest;
 
-import dao.IShow;
+import dao.IItem;
 import dao.UserDao;
 import modeles.User;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ public class UserTest {
     public void testInsert() {
         User user = new User("frank", "1234", true);
 
-        IShow userDao = new UserDao();
+        IItem userDao = new UserDao();
         userDao.insert(user);
     }
 

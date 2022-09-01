@@ -1,12 +1,10 @@
 package controleur;
 
-import dao.IShow;
-import dao.ShowDao;
-import modeles.Client;
-import modeles.Show;
+import dao.IItem;
+import dao.NetflixDao;
+import modeles.Netflix;
 import modeles.User;
 
-import javax.persistence.Column;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -24,7 +22,7 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String dest = "";
-        List<Show> listeShows = null;
+        List<Netflix> listeShows = null;
         User user = new User("frank", "1234", true);
 
         User userRegulier = new User("alex", "1234", false);
@@ -37,16 +35,16 @@ public class Login extends HttpServlet {
             if (user.getUsername().equals(userAdmin.getUsername()) && user.getHashPassword()
                     .equals(userAdmin.getHashPassword()) && userAdmin.isAdmin()) {
 
-                IShow showDao = new ShowDao();
-                listeShows = ((ShowDao) showDao).GetAllCanadianShowsRecent();
+                IItem showDao = new NetflixDao();
+                listeShows = ((NetflixDao) showDao).GetAllCanadianShowsRecent();
                 session.setAttribute("listeshows", listeShows);
 
                 dest = "WEB-INF/Connecter.jsp";
 
             } else if (userRegulier.getUsername().equals(userAdmin.getUsername()) && userRegulier.getHashPassword()
                     .equals(userAdmin.getHashPassword()) && !userRegulier.isAdmin()) {
-                IShow showDao = new ShowDao();
-                listeShows = ((ShowDao) showDao).GetAllCanadianShowsRecent();
+                IItem showDao = new NetflixDao();
+                listeShows = ((NetflixDao) showDao).GetAllCanadianShowsRecent();
                 session.setAttribute("listeshows", listeShows);
 
                 dest = "index.jsp";

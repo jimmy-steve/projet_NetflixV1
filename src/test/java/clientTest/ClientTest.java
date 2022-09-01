@@ -2,16 +2,13 @@ package clientTest;
 
 import dao.AbonnementDao;
 import dao.ClientDao;
-import dao.IShow;
+import dao.IItem;
 import dao.UserDao;
 import modeles.Abonnement;
 import modeles.Client;
 import modeles.User;
 import org.junit.jupiter.api.Test;
-import utilitaire.GenerateurNombreSequentiel;
 
-import javax.persistence.EntityManager;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class ClientTest {
             Client client = new Client("testNom", "testPrenom", "testAdresse",
                     "testo@gmail.com", "(450)555-5555",
                     Integer.parseInt(genererNombre()));
-            IShow clientDao = new ClientDao();
+            IItem clientDao = new ClientDao();
             clientDao.insert(client);
         }
     }
@@ -59,13 +56,13 @@ public class ClientTest {
             /**
              * j'enregistre le user dans la base de donnée
              */
-            IShow userDao = new UserDao();
+            IItem userDao = new UserDao();
             userDao.insert(user);
             /**
              * J'enregistre le client dans la base de donnée
              */
             client.setIdUser(user.getIdUser());
-            IShow clientDao = new ClientDao();
+            IItem clientDao = new ClientDao();
             clientDao.insert(client);
 
             /**
