@@ -9,6 +9,15 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Name: SHowCardSpecial
+ * Servlet permettant de faire afficher un certain nombre de film
+ * mais de façon différente et avec un peux d'animation
+ *
+ * @author Francis Lafontaine
+ * @version V1
+ * @since 01/09/2022
+ */
 @WebServlet(name = "ShowCardSpecial", value = "/ShowCardSpecial")
 public class ShowCardSpecial extends HttpServlet {
     @Override

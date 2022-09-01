@@ -1,7 +1,6 @@
 package dao;
 
 import modeles.Client;
-import modeles.Netflix;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,49 +8,25 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 
+/**
+ * Name : ClientDao
+ * Cette classe qui implémente IItem
+ * permet de persister les données pour le client
+ *
+ *
+ * @author Francis Lafontaine
+ * @version V1
+ * @since 01/09/2022
+ */
 public class ClientDao implements IItem {
     static EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("hibernate");
 
-
-    Boolean insert(Client client) {
-        EntityManager entityManager = null;
-        try {
-            entityManager = entityManagerFactory.createEntityManager();
-            entityManager.getTransaction().begin();
-            entityManager.persist(client);
-            entityManager.getTransaction().commit();
-            entityManager.close();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            entityManager.getTransaction().rollback();
-            return false;
-        }
-    }
-
     /**
-     * Permet d'aller cherche tout la liste des shows
-     *
-     * @return une liste de show complête
+     * Name : GetAllClients
+     * permettant d'aller chercher une listes de client dans la base de donnée
+     * @return la liste de tout les clients
      */
-    @Override
-    public List<Netflix> getAllShows() {
-        return null;
-    }
-
-    /**
-     * Permet d'aller chercher un show
-     *
-     * @param id
-     * @return un show
-     */
-    @Override
-    public Netflix getShow(int id) {
-        return null;
-    }
-
-
     public List<Client> getAllClients() {
         List listeClients = null;
 
@@ -71,11 +46,17 @@ public class ClientDao implements IItem {
         return listeClients;
     }
 
+    /**
+     * Name : getClient
+     * Méthode permettant d'aller cherche un client
+     * @param numeroClient qui est son id de client
+     * @return un objet de type client
+     */
     public static Object getClient(long numeroClient) {
         Object client = null;
 
         EntityManager entityManager = null;
-        /**
+        /*
          * faire un try catch pour gerer les probleme lors de la transaction
          */
         try {
@@ -83,25 +64,6 @@ public class ClientDao implements IItem {
             entityManager.getTransaction().begin();
             client = entityManager.find(Client.class, numeroClient);
             return client;
-        } catch (Exception e) {
-            e.printStackTrace();
-            entityManager.getTransaction().rollback();
-            return client;
-        } finally {
-            entityManager.close();
-        }
-    }
-
-    public static Client getUnClient(long id) {
-        Client client = null;
-        EntityManager entityManager = null;
-        try {
-
-            entityManager = entityManagerFactory.createEntityManager();
-            entityManager.getTransaction().begin();
-
-            Client response = (Client) entityManager.find(Client.class, id);
-            return response;
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();

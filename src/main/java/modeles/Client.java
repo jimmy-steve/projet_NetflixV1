@@ -2,6 +2,13 @@ package modeles;
 
 import javax.persistence.*;
 
+/**
+ * Name : Client
+ * Classe POJO pour notre application
+ * @author Francis Lafontaine
+ * @version V1
+ * @since 01/09/2022
+ */
 @Entity
 public class Client {
     @Id

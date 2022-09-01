@@ -12,13 +12,21 @@ import java.io.IOException;
 
 import static utilitaire.GenerateurNombreSequentiel.genererNombre;
 
+/**
+ * Name : Register
+ * Servlet permettant d'aller chercher toute les informations du clients et du users
+ * Il insère également dans la BD 1 user et 1 client
+ *
+ * @author Francis Lafontaine
+ * @version V1
+ * @since 01/09/2022
+ */
 @WebServlet(name = "Register", value = "/Register")
 public class Register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String dest = "confirm.jsp";
@@ -36,37 +44,37 @@ public class Register extends HttpServlet {
         String passWord = request.getParameter("passWord");
 
 
-            /**
-             * je créer un client typique
-             */
-            Client client = new Client(nom, prenom, adresse, email, telephone, Integer.parseInt(genererNombre()));
-            /**
-             * je créer un user typique
-             */
-            User user = new User(userName, passWord, "null");
-            /**
-             * j'enregistre le user dans la base de donnée
-             */
-            IItem userDao = new UserDao();
-            userDao.insert(user);
-            /**
-             * J'enregistre le client dans la base de donnée
-             */
-            client.setIdUser(user.getIdUser());
-            IItem clientDao = new ClientDao();
-            clientDao.insert(client);
+        /*
+         * je créer un client typique
+         */
+        Client client = new Client(nom, prenom, adresse, email, telephone, Integer.parseInt(genererNombre()));
+        /*
+         * je créer un user typique
+         */
+        User user = new User(userName, passWord, "null");
+        /*
+         * j'enregistre le user dans la base de donnée
+         */
+        IItem userDao = new UserDao();
+        userDao.insert(user);
+        /*
+         * J'enregistre le client dans la base de donnée
+         */
+        client.setIdUser(user.getIdUser());
+        IItem clientDao = new ClientDao();
+        clientDao.insert(client);
 
-            /**
-             * je créer un abonnement pour le user
-             */
-            Abonnement abonnement = new Abonnement(client.getIdAbonnement(), typeAbonnement, 25.77, user.getIdUser());
+        /*
+         * je créer un abonnement pour le user
+         */
+        Abonnement abonnement = new Abonnement(client.getIdAbonnement(), typeAbonnement, 25.77, user.getIdUser());
 
-            /**
-             * J"enregistre l'abonnement fans la base donnée
-             */
+        /*
+         * J"enregistre l'abonnement fans la base donnée
+         */
 
-            AbonnementDao abonnementDao = new AbonnementDao();
-            abonnementDao.insert(abonnement);
+        AbonnementDao abonnementDao = new AbonnementDao();
+        abonnementDao.insert(abonnement);
 
 
         RequestDispatcher disp = request.getRequestDispatcher(dest);

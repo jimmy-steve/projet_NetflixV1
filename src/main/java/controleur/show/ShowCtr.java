@@ -9,6 +9,15 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Name: SHowCtr
+ * Servlet permettant de faire afficher une liste de film pour le client regulier
+ * On va pouvoir y ajouter des filtres pour raccourcir la liste de film
+ *
+ * @author Francis Lafontaine
+ * @version V1
+ * @since 01/09/2022
+ */
 @WebServlet(name = "ShowCtr", value = "/ShowCtr")
 public class ShowCtr extends HttpServlet {
     @Override
@@ -27,26 +36,22 @@ public class ShowCtr extends HttpServlet {
         System.out.println(option1);
         NetflixDao showDao = new NetflixDao();
 
-        if (action.equals("admin")){
+        if (action.equals("admin")) {
             dest = "/WEB-INF/Connecter.jsp";
         }
 
 
-        if (option1.equals("all") && type.equals("kids")){
+        if (option1.equals("all") && type.equals("kids")) {
             listeShows = showDao.GetAllkids();
-        }else if( option1.equals("canada") ){
+        } else if (option1.equals("canada")) {
             listeShows = showDao.GetAllCanadian();
-        }
-
-
-        else if (option1.equals("usa")){
+        } else if (option1.equals("usa")) {
             listeShows = showDao.GetAllAmerican();
-        }else if (option1.equals("recentCanadianTV")){
+        } else if (option1.equals("recentCanadianTV")) {
             listeShows = showDao.GetAllCanadianShowsRecent();
-        }else if (option1.equals("all")){
+        } else if (option1.equals("all")) {
             listeShows = showDao.getAllShows();
         }
-
 
 
         request.setAttribute("listeShows", listeShows);

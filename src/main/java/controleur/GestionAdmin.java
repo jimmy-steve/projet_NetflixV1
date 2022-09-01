@@ -11,6 +11,15 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Name : GestionAdmin
+ * Servlet permettant de gèrer le menu de gauche dans le côté administration
+ * Elle renvoit les bonnes informations au différente page de gestion
+ *
+ * @author Francis Lafontaine
+ * @version V1
+ * @since 01/09/2022
+ */
 @WebServlet(name = "GestionAdmin", value = "/GestionAdmin")
 public class GestionAdmin extends HttpServlet {
     @Override
@@ -19,14 +28,8 @@ public class GestionAdmin extends HttpServlet {
         String dest = "/WEB-INF/Connecter.jsp";
 
 
-
-        if (source.equals("client")){
+        if (source.equals("client")) {
             HttpSession session = request.getSession();
-//            Client clientTest = new Client(1,"Lafon", "frank", "87 rue de la montagne Québec",
-//                    "email@gmail.com", "(514)582-2459", 1, 1);
-//
-//            User userTest = new User("frank", "1234", true);
-
 
             ClientDao clientDao = new ClientDao();
             UserDao userDao = new UserDao();
@@ -35,16 +38,15 @@ public class GestionAdmin extends HttpServlet {
             List<User> listUsers = userDao.getAllUsers();
 
             session.setAttribute("listUsers", listUsers);
-            session.setAttribute("listClients",listClients);
+            session.setAttribute("listClients", listClients);
 
 
             dest = "/WEB-INF/gestionClientAdmin.jsp";
-        }else if (source.equals("abonnement")){
+        } else if (source.equals("abonnement")) {
             dest = "/WEB-INF/gestionAbonnementAdmin.jsp";
-        }else if (source.equals("show")){
+        } else if (source.equals("show")) {
             dest = "/WEB-INF/gestionShowAdmin.jsp";
         }
-
 
 
         RequestDispatcher disp = request.getRequestDispatcher(dest);

@@ -7,6 +7,14 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
+/**
+ * Name : IItem
+ * Interface qui permet a tous mes objet de pêrsister les donnée dans la base de donnée
+ *
+ * @author Francis Lafontaine
+ * @version V1
+ * @since 01/09/2022
+ */
 public interface IItem {
     EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("hibernate");
@@ -30,16 +38,22 @@ public interface IItem {
             return false;
         }
     }
+
     /**
      * Permet d'aller cherche tout la liste des shows
      *
      * @return une liste de show complête
      */
-    List<Netflix> getAllShows();
+    default List<Netflix> getAllShows() {
+        return null;
+    }
 
     /**
      * Permet d'aller chercher un show
+     *
      * @return un show
      */
-    Netflix getShow(int id);
+    default Netflix getShow(int id) {
+        return null;
+    }
 }

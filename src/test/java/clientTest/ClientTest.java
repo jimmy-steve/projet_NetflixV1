@@ -18,7 +18,7 @@ import static utilitaire.GenerateurNombreSequentiel.*;
 public class ClientTest {
     @Test
     public void testInsert() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2; i++) {
             Client client = new Client("testNom", "testPrenom", "testAdresse",
                     "testo@gmail.com", "(450)555-5555",
                     Integer.parseInt(genererNombre()));
@@ -94,14 +94,6 @@ public class ClientTest {
         ) {
             System.out.println(tmp);
         }
-    }
-
-    @Test
-    public void testGetUnClient() {
-        ClientDao clientDao = new ClientDao();
-
-        System.out.println(ClientDao.getUnClient(1L));
-
     }
 
     @Test

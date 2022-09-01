@@ -11,6 +11,19 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Name : Login
+ * Servlet permettant de controller le login
+ * devrait être modifié pour être intégrer au bloque de gabriel Gagnon------------------------a vérifier
+ * car les user ne sont pas valider .... il sont écrit en dur
+ * frank password=1234---admin
+ * alex password=1234--- client régulier
+ *
+ *
+ * @author Francis Lafontaine
+ * @version V1
+ * @since 01/09/2022
+ */
 @WebServlet(name = "Login", value = "/Login")
 public class Login extends HttpServlet {
     @Override
@@ -35,16 +48,16 @@ public class Login extends HttpServlet {
             if (user.getUsername().equals(userAdmin.getUsername()) && user.getHashPassword()
                     .equals(userAdmin.getHashPassword()) && userAdmin.isAdmin()) {
 
-                IItem showDao = new NetflixDao();
-                listeShows = ((NetflixDao) showDao).GetAllCanadianShowsRecent();
+                NetflixDao showDao = new NetflixDao();
+                listeShows = showDao.GetAllCanadianShowsRecent();
                 session.setAttribute("listeshows", listeShows);
 
                 dest = "WEB-INF/Connecter.jsp";
 
             } else if (userRegulier.getUsername().equals(userAdmin.getUsername()) && userRegulier.getHashPassword()
                     .equals(userAdmin.getHashPassword()) && !userRegulier.isAdmin()) {
-                IItem showDao = new NetflixDao();
-                listeShows = ((NetflixDao) showDao).GetAllCanadianShowsRecent();
+                NetflixDao showDao = new NetflixDao();
+                listeShows = showDao.GetAllCanadianShowsRecent();
                 session.setAttribute("listeshows", listeShows);
 
                 dest = "index.jsp";

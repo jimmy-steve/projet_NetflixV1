@@ -9,12 +9,21 @@ import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Name : NetflixDao
+ * Classe qui implémente ITem
+ * Permettant de sauvegarder tous se qui touche la base de donnée des film de netflix
+ *
+ * @author Francis Lafontaine
+ * @version V1
+ * @since 01/09/2022
+ */
 public class NetflixDao implements IItem {
-
     static EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("hibernate");
 
     /**
+     * name : getAllShows
      * Permet d'aller cherche tout la liste des shows
      *
      * @return une liste de show complête
@@ -40,14 +49,14 @@ public class NetflixDao implements IItem {
     }
 
     /**
-     * Permet d'aller chercher un show
+     * Name : getShow
+     * Permet d'aller chercher un show et prend le id en int du show
      *
-     * @return un show
+     * @return un show de type show
      */
     @Override
     public Netflix getShow(int id) {
         Netflix show = null;
-
         EntityManager entityManager = null;
         /**
          * faire un try catch pour gerer les probleme lors de la transaction
@@ -66,10 +75,14 @@ public class NetflixDao implements IItem {
         }
     }
 
+    /**
+     * Name : getAllAmericanMovies
+     * Permet de faire une requête et d'aller chercher tout les film américain
+     *
+     * @return une list de show de netflix
+     */
     public List<Netflix> getAllAmericanMovies() {
         List<Netflix> listAmericanShows = new ArrayList<>();
-
-
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
@@ -87,6 +100,12 @@ public class NetflixDao implements IItem {
         }
     }
 
+    /**
+     * Name : GetAllCanadianShowsRecent
+     * Permet de faire une reqûete et d'aller chercher une liste des plus récent show canadien
+     *
+     * @return une list de show canadien
+     */
     public List<Netflix> GetAllCanadianShowsRecent() {
         List<Netflix> listCanadianShows = new ArrayList<>();
 
@@ -107,6 +126,12 @@ public class NetflixDao implements IItem {
         }
     }
 
+    /**
+     * Name : Get allCanadian
+     * Permet de faire une requête et d'aller chercher toutes les films canadiens
+     *
+     * @return une liste de show canadian
+     */
     public List<Netflix> GetAllCanadian() {
         List<Netflix> listCanadianShows = new ArrayList<>();
 
@@ -127,6 +152,12 @@ public class NetflixDao implements IItem {
         }
     }
 
+    /**
+     * Name : getAllAmerican
+     * Permet de faire une requête de tous les film américan
+     *
+     * @return une list de show de netflix de film américain
+     */
     public List<Netflix> GetAllAmerican() {
         List<Netflix> listAmerican = new ArrayList<>();
 
@@ -147,6 +178,12 @@ public class NetflixDao implements IItem {
         }
     }
 
+    /**
+     * Name : getAllKids
+     * Permet d'aller chercher tout la liste des film lister pour enfants
+     *
+     * @return une liste de film lister dans la catégorie enfant
+     */
     public List<Netflix> GetAllkids() {
         List<Netflix> listKids = new ArrayList<>();
 
