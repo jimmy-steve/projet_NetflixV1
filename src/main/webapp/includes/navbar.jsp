@@ -14,6 +14,10 @@
                 <li class="nav-item pe-4">
                     <a class="nav-link active" aria-current="page" href="index.jsp">Accueil</a>
                 </li>
+
+                <li class="nav-item"><a class="nav-link" href="cart.jsp" style="margin-right: 10px">Cart
+                    <span class="badge badge-danger">${sessionScope.cart.quantite}</span> </a></li>
+
                 <li class="nav-item dropdown pe-4">
                     <a class="nav-link dropdown-toggle" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,7 +73,6 @@
                         </div>
                     </form>
                 </li>
-
 
 
                 <form class="form-inline">

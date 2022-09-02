@@ -27,6 +27,7 @@ public class Register extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String dest = "confirm.jsp";
@@ -76,7 +77,7 @@ public class Register extends HttpServlet {
         AbonnementDao abonnementDao = new AbonnementDao();
         abonnementDao.insert(abonnement);
 
-
+        request.setAttribute("client", client);
         RequestDispatcher disp = request.getRequestDispatcher(dest);
         disp.forward(request, response);
     }

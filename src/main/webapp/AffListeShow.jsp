@@ -66,7 +66,8 @@
 
 
                                 <td>
-
+                                    <a  href="AjouterArticlePanier?id=${show.id}"
+                                        class=" btn btn-success ">Ajouter</a>
                                     <a  href="DetailShow?id=${show.id}"
                                         class=" btn btn-success ">Detail</a>
                                 </td>

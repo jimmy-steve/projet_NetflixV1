@@ -58,7 +58,10 @@
                         </tr>
                         <tr>
                             <th colspan="2" class="text-center">
-                                <a href="DetailShow" class="btn btn-danger">Voir Détail</a>
+                                <a  href="AjouterArticlePanier?id=${show.id}"
+                                    class=" btn btn-success ">Ajouter</a>
+                                <a  href="DetailShow?id=${show.id}"
+                                    class=" btn btn-danger ">Detail</a>
                             </th>
                         </tr>
                         </tbody>
