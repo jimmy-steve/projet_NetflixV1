@@ -23,7 +23,7 @@
 <%--    </button>--%>
 <%--</div>--%>
 
-<h1 class="text-center text-light mb-3" style="margin:auto;margin-top:100px; margin-left: 100px">Liste de shows netflix Administration</h1>
+<h1 class="text-center text-light mb-3" style="margin:auto;margin-top:100px; margin-left: 200px">Liste de shows netflix Administration</h1>
 
 
 <div class="container-fluid">
@@ -49,7 +49,7 @@
                 </ul>
             </nav>
         </div>
-        <div class="col-10">
+        <div class="col-8 mx-auto">
             <div class="card-group">
                 <div class="card">
                     <img class="card-img-top" src="./images/photo31.webp" alt="Card image cap">
@@ -89,6 +89,7 @@
         </div>
     </div>
 </div>
+<br><br>
 
 
 <%--<div class="col-12 " style="margin-right: auto; margin-left: auto">--%>
